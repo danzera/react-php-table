@@ -1,0 +1,29 @@
+version: "3.2"
+
+services:
+    app:
+        image: abmfullstacktest
+        build:
+            context: .docker
+        ports:
+            - "8012:80"
+        depends_on:
+            - db
+        volumes:
+            - .:/app:cached
+
+    db:
+        image: mysql:5.7
+        command: --init-file /data/application/init.sql
+        restart: always
+        volumes:
+            - ./.docker/my.cnf:/etc/mysql/conf.d/my.cnf
+            - ./.docker/init.sql:/data/application/init.sql
+            - ./data/db_data:/var/lib/mysql
+        environment:
+           MYSQL_ROOT_USER: root
+           MYSQL_ROOT_PASSWORD: root
+           MYSQL_DATABASE: abm
+        ports:
+            - "33061:3306"
+
