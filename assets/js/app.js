@@ -8,7 +8,8 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import '../css/app.css';
 
-// Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
-// import $ from 'jquery';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Main from './components/main';
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+ReactDOM.render(<Main />, document.getElementById('root'));
