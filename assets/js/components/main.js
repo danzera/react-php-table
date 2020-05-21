@@ -59,7 +59,7 @@ class Main extends React.Component {
 		return (
 			<div className="main-component ui container">
 				<Header />
-				<Container data={this.state.data} favoriteClicked={this.favoriteClicked} />
+				<Container data={this.state.data} favorites={this.state.favorites} favoriteClicked={this.favoriteClicked} />
 				<Footer />
 			</div>
 		);

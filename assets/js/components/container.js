@@ -89,7 +89,7 @@ class Container extends React.Component {
 	// generate favorite icons according to favorites list
 	getFavoritesIcon(vin) {
 		// vehicle is a favorite
-		if (0) {
+		if (this.props.favorites.includes(vin)) {
 			return (
 				<td className="favorite-td center aligned" key={vin} data-vin={vin} data-label="Favorite" onClick={e => this.onFavoriteClick(e)}>
 					<i className="star icon"></i>
