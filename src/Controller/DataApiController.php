@@ -27,7 +27,9 @@ class DataApiController extends AbstractController {
         while (($row = fgetcsv($file, 0, ",")) !== FALSE) {
             $vehicle = [];
             foreach ($headers as $index => $val) {
-                $vehicle[$val] = $row[$index];
+                // TODO: make this check more resilient against other forms of 'null' in data
+                //       this is a short-term solution in lieu of data being created via migration
+                $vehicle[$val] = ($row[$index] == 'NULL') ? null : $row[$index];
             }
             $vehicles[] = $vehicle;
         }
