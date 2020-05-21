@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import Header from './header';
 import Container from './container';
 import Footer from './footer';
@@ -18,7 +20,12 @@ class Main extends React.Component {
 	}
 
 	componentDidMount() {
-		// TODO: MAKE API CALL AND 
+		// call api to retrieve vehicle data
+		axios.get('api/data').then(res => {
+			this.setState({ data: res.data });
+		}, err => {
+			// TODO: handle error with data fetch
+		});
 	}
 
 	render() {
