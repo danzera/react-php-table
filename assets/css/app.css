@@ -1,3 +1,7 @@
+@import './header.css';
+@import './container.css';
+@import './footer.css';
+
 body {
     background-color: lightgray;
 }
