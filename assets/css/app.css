@@ -1,6 +1,7 @@
-@import './header.css';
 @import './container.css';
 @import './footer.css';
+@import './header.css';
+@import './spinner.css';
 
 body {
     background-color: lightgray;

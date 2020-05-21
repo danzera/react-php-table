@@ -12,15 +12,20 @@ class Main extends React.Component {
 
 		// initialize state
 		this.state = {
-			favorites: [] // will need to utilize local storage for state initialization
+			favorites: [], // will need to utilize local storage for state initialization
+			data: [] // will need to be populated via API call
 		}
+	}
+
+	componentDidMount() {
+		// TODO: MAKE API CALL AND 
 	}
 
 	render() {
 		return (
 			<div className="main-component ui container">
 				<Header />
-				<Container />
+				<Container data={ this.state.data } />
 				<Footer />
 			</div>
 		);
