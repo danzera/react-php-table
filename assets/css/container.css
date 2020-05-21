@@ -5,3 +5,7 @@
 .favorite-td:hover {
 	background-color: #cacbcd;
 }
+
+.star.icon:not(.outline) {
+	color: goldenrod;
+}
