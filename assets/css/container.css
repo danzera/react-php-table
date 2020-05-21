@@ -1,3 +1,7 @@
+.container-component {
+	overflow-x: scroll;
+}
+
 .favorite-td {
 	cursor: pointer;
 }

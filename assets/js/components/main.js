@@ -50,7 +50,7 @@ class Main extends React.Component {
 
 	render() {
 		return (
-			<div className="main-component ui container">
+			<div className="main-component">
 				<Header favorites={this.state.favorites} />
 				<Container data={this.state.data} favorites={this.state.favorites} favoriteClicked={this.favoriteClicked} />
 				<Footer />
