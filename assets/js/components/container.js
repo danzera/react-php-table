@@ -1,21 +1,44 @@
 import React from 'react';
 import Spinner from './spinner';
 
-class Container extends React.Component {
+const Container = ({ data }) => {
 
-	render() {
-		// show loading message if there is no data
-		if (!this.props.data.length) {
-			return <Spinner />;
-		}
-		// show content
-		else {
+	console.log(data);
+
+	// show loading message if there is no data
+	if (!data.vehicles.length) {
+		return <Spinner />;
+	}
+	// show content
+	else {
+		const headersList = data.headers.map((text, index) => <th key={index}>{text}</th>);
+		const rows = data.vehicles.map((vehicle, index) => {
+			const tdList = [];
+			for (let i = 0; i < data.headers.length; i++) {
+				tdList.push(<td key={i}>{vehicle[data.headers[i]]}</td>);
+			}
+
 			return (
-				<div className="container-component">
-					Container Content
-				</div>
+				<tr key={vehicle.vin}>
+					{tdList}
+				</tr>
 			);
-		}
+		});
+
+		return (
+			<div className="container-component">
+				<table className="ui celled table">
+						<thead>
+							<tr>
+								{headersList}
+							</tr>
+						</thead>
+						<tbody>
+							{rows}
+						</tbody>
+				</table>
+			</div>
+		);
 	}
 }
 

@@ -15,13 +15,17 @@ class Main extends React.Component {
 		// initialize state
 		this.state = {
 			favorites: [], // will need to utilize local storage for state initialization
-			data: [] // will need to be populated via API call
+			data: {
+				headers: [],
+				vehicles: []
+			}
 		}
 	}
 
 	componentDidMount() {
-		// call api to retrieve vehicle data
+		// call API to retrieve vehicle data
 		axios.get('api/data').then(res => {
+			console.log('api/data response received', res);
 			this.setState({ data: res.data });
 		}, err => {
 			// TODO: handle error with data fetch
