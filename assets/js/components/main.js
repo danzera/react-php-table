@@ -9,16 +9,10 @@ class Main extends React.Component {
 	constructor(props) {
 		super(props);
 
-		// TODO: CHECK LOCAL STORAGE FOR FAVORITES LIST
-		// window.localStorage.favorites
-		// window.localStorage.favorites = window.localStorage.favorites ? window.localStorage.favorites : [];
-		// if (window.localStorage.favorites.length) {
-		//
-		// }
-
 		// initialize state
+		const favorites = window.localStorage.favorites ? JSON.parse(window.localStorage.favorites) : [];
 		this.state = {
-			favorites: [], // will need to utilize local storage for state initialization
+			favorites,
 			data: {
 				headers: [],
 				vehicles: []
@@ -50,8 +44,7 @@ class Main extends React.Component {
 		// update state
 		this.setState({ favorites: newFavorites }, () => {
 			// update localStorage
-			// 	window.localStorage.favorites = JSON.stringify(this.state.favorites);
-			// 	console.log(JSON.parse(window.localStorage.favorites))
+				window.localStorage.favorites = JSON.stringify(this.state.favorites);
 		});
 	}
 
