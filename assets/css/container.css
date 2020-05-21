@@ -1,4 +1,7 @@
-.container-component {
-	background-color: rosybrown;
-	padding: 20px 0;
+.favorite-td {
+	cursor: pointer;
+}
+
+.favorite-td:hover {
+	background-color: #cacbcd;
 }
