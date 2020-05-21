@@ -11,19 +11,8 @@ const Container = ({ data }) => {
 	}
 	// show content
 	else {
-		const headersList = data.headers.map((text, index) => <th key={index}>{text}</th>);
-		const rows = data.vehicles.map((vehicle, index) => {
-			const tdList = [];
-			for (let i = 0; i < data.headers.length; i++) {
-				tdList.push(<td key={i}>{vehicle[data.headers[i]]}</td>);
-			}
-
-			return (
-				<tr key={vehicle.vin}>
-					{tdList}
-				</tr>
-			);
-		});
+		const headersList = getHeadersList(data.headers);
+		const rowsList = getRowsList(data);
 
 		return (
 			<div className="container-component">
@@ -34,12 +23,37 @@ const Container = ({ data }) => {
 							</tr>
 						</thead>
 						<tbody>
-							{rows}
+							{rowsList}
 						</tbody>
 				</table>
 			</div>
 		);
 	}
+}
+
+const getHeadersList = (headers) => {
+	return headers.map((text, index) => {
+		// omit id field from table
+		if (text.toLowerCase() != 'id') return <th key={index}>{text}</th>;
+	});
+}
+
+const getRowsList = ({ headers, vehicles }) => {
+	return vehicles.map((vehicle, index) => {
+		const tdList = [];
+		for (let i = 0; i < headers.length; i++) {
+			const key = headers[i];
+			// omit id field from table
+			if (key.toLowerCase() != 'id')
+				tdList.push(<td key={i}>{vehicle[key]}</td>);
+		}
+
+		return (
+			<tr key={vehicle.vin}>
+				{tdList}
+			</tr>
+		);
+	});
 }
 
 export default Container;
