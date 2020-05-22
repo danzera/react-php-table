@@ -14,6 +14,8 @@ class Main extends React.Component {
 		this.state = {
 			favorites,
 			data: {
+				num_pages: 1,
+				current_page: 1,
 				headers: [],
 				vehicles: []
 			}

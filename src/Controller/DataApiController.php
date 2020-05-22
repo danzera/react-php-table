@@ -41,6 +41,7 @@ class DataApiController extends AbstractController {
         }
 
         $data = [
+            "current_page" => $page_requested,
             "num_pages" => $num_pages,
             "headers" => $file_headers,
             "vehicles" => $vehicles

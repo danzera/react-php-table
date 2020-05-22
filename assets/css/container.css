@@ -13,3 +13,7 @@
 .star.icon:not(.outline) {
 	color: goldenrod;
 }
+
+div.pagination a.item.current-page {
+	background-color: #23a7ff;
+}

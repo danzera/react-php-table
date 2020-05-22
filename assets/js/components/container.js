@@ -20,6 +20,7 @@ class Container extends React.Component {
 		else {
 			const headersList = this.getHeadersList(this.props.data.headers);
 			const rowsList = this.getRowsList(this.props.data);
+			const pageNumbers = this.getPageNumbers(this.props.data.num_pages, this.props.data.current_page);
 
 			return (
 				<div className="container-component">
@@ -33,6 +34,21 @@ class Container extends React.Component {
 							<tbody>
 								{rowsList}
 							</tbody>
+							<tfoot>
+								<tr>
+									<th colSpan={this.props.data.num_pages}>
+										<div className="ui pagination menu">
+											<a className="icon item">
+												<i className="left chevron icon"></i>
+											</a>
+											{pageNumbers}
+											<a className="icon item">
+												<i className="right chevron icon"></i>
+											</a>
+										</div>
+									</th>
+								</tr>
+							</tfoot>
 					</table>
 				</div>
 			);
@@ -104,6 +120,15 @@ class Container extends React.Component {
 				</td>
 			);
 		}
+	}
+
+	getPageNumbers(num_pages, current_page) {
+		let pageNumbersList = [];
+		for (let i = 1; i <= num_pages; i++) {
+			const classStr = (i == current_page) ? "item current-page" : "item";
+			pageNumbersList.push(<a className={classStr} key={i} data-page_number={i}>{i}</a>);
+		}
+		return pageNumbersList;
 	}
 }
 
