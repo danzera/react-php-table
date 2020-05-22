@@ -22,19 +22,18 @@ class LoadData extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        // helpful links
+        $output->writeln('Generating data from /assets/data/test.csv');
+
+        $entityCommand = $this->getApplication()->find('make:entity');
+        
+        // TODO: programmatically run through the make:entity setup...?
+        // potentially helpful links
         // https://github.com/symfony/maker-bundle/issues/269
         // https://github.com/symfony/maker-bundle/blob/master/src/Test/MakerTestEnvironment.php#L208-L235
 
-        $output->writeln('Generating data from /assets/data/test.csv');
-
-        $command = $this->getApplication()->find('make:entity');
-        
-        // TODO: programmatically run through the make:entity setup...?
-
         // generate a new migration
-        $command = $this->getApplication()->find('make:migration');
-        $command->run($input, $output);
+        $migrationCommand = $this->getApplication()->find('make:migration');
+        $migrationCommand->run($input, $output);
 
         return 0;
     }
