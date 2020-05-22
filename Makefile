@@ -44,7 +44,7 @@ tty:                                                                            
 ## Database
 ##---------------------------------------------------------------------------
 wait-for-db:
-    $(EXEC) php -r "set_time_limit(60);for(;;){if(@fsockopen('db',3306)){break;}echo \"Waiting for MySQL\n\";sleep(1);}"
+		$(EXEC) php -r "set_time_limit(60);for(;;){if(@fsockopen('db',3306)){break;}echo \"Waiting for MySQL\n\";sleep(1);}"
 
 db: vendor wait-for-db                                                                             ## Reset the database and load fixtures
 	$(EXEC) $(CONSOLE) doctrine:migrations:migrate -n
