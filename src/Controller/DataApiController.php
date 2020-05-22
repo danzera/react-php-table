@@ -14,7 +14,7 @@ class DataApiController extends AbstractController {
      */
     public function index(Request $request) {
         $num_results = $request->query->get('num_results') ? $request->query->get('num_results') : 25;
-        $page_requested = $request->query->get('page') ? $request->query->get('page') : 1;
+        $page_requested = $request->query->get('page_requested') ? $request->query->get('page_requested') : 1;
 
         // TODO: paginate utilizing the Vehicle.php Entity
         //       likely involving the use of Doctrine\ORM\Tools\Pagination\Paginator

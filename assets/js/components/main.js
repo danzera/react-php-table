@@ -22,11 +22,19 @@ class Main extends React.Component {
 		}
 
 		this.favoriteClicked = this.favoriteClicked.bind(this);
+		this.pageNumberClicked = this.pageNumberClicked.bind(this);
 	}
 
 	componentDidMount() {
 		// call API to retrieve vehicle data
-		axios.get('api/data').then(res => {
+		this.fetchData();
+	}
+
+	fetchData(page_requested = 1, num_results = 25) {
+		// call API to retrieve vehicle data
+		axios.get('api/data', {
+			params: { page_requested, num_results }
+		}).then(res => {
 			this.setState({ data: res.data });
 		}, err => {
 			// TODO: handle error with data fetch
@@ -50,11 +58,19 @@ class Main extends React.Component {
 		});
 	}
 
+	pageNumberClicked(pageNumber) {
+		this.fetchData(pageNumber);
+	}
+
 	render() {
 		return (
 			<div className="main-component">
 				<Header favorites={this.state.favorites} />
-				<Container data={this.state.data} favorites={this.state.favorites} favoriteClicked={this.favoriteClicked} />
+				<Container data={this.state.data}
+									 favorites={this.state.favorites}
+									 favoriteClicked={this.favoriteClicked}
+									 pageNumberClicked={this.pageNumberClicked}
+				/>
 				<Footer />
 			</div>
 		);

@@ -10,6 +10,12 @@ class Container extends React.Component {
 		this.props.favoriteClicked(vin);
 	}
 
+	onPageNumberClick(e) {
+		const page = e.target.getAttribute('data-page');
+		// pass page number up to parent to make new request
+		this.props.pageNumberClicked(page);
+	}
+
 	// ----- RENDER -----
 	render() {
 	// show loading message if there is no data
@@ -126,7 +132,11 @@ class Container extends React.Component {
 		let pageNumbersList = [];
 		for (let i = 1; i <= num_pages; i++) {
 			const classStr = (i == current_page) ? "item current-page" : "item";
-			pageNumbersList.push(<a className={classStr} key={i} data-page_number={i}>{i}</a>);
+			pageNumbersList.push(
+				<a className={classStr} key={i} data-page={i} onClick={e => this.onPageNumberClick(e)}>
+					{i}
+				</a>
+			);
 		}
 		return pageNumbersList;
 	}
