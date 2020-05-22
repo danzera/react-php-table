@@ -23,6 +23,7 @@ class Container extends React.Component {
 	}
 
 	// ----- RENDER -----
+	// TODO: add search and sort features
 	render() {
 	// show loading message if there is no data
 		if (!this.props.data.vehicles.length) {
