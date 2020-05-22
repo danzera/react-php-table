@@ -26,7 +26,6 @@ class Main extends React.Component {
 	}
 
 	componentDidMount() {
-		// call API to retrieve vehicle data
 		this.fetchData();
 	}
 

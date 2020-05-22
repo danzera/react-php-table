@@ -16,6 +16,12 @@ class Container extends React.Component {
 		this.props.pageNumberClicked(page);
 	}
 
+	onArrowClick(e) {
+		const page = Number(e.target.closest('a').getAttribute('data-page')) + this.props.data.current_page;
+		// change page if in range
+		if (page > 0 && page <= this.props.data.num_pages) this.props.pageNumberClicked(page);
+	}
+
 	// ----- RENDER -----
 	render() {
 	// show loading message if there is no data
@@ -30,7 +36,7 @@ class Container extends React.Component {
 
 			return (
 				<div className="container-component">
-					<table className="ui celled table">
+					<table className="ui celled unstackable table">
 							<thead>
 								<tr>
 									<th>FAVORITE</th>
@@ -44,11 +50,11 @@ class Container extends React.Component {
 								<tr>
 									<th colSpan={this.props.data.num_pages}>
 										<div className="ui pagination menu">
-											<a className="icon item">
+											<a className="icon item" data-page={-1} onClick={e => this.onArrowClick(e)}>
 												<i className="left chevron icon"></i>
 											</a>
 											{pageNumbers}
-											<a className="icon item">
+											<a className="icon item" data-page={1} onClick={e => this.onArrowClick(e)}>
 												<i className="right chevron icon"></i>
 											</a>
 										</div>
