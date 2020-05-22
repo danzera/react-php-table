@@ -36,7 +36,7 @@ class Container extends React.Component {
 
 			return (
 				<div className="container-component">
-					<table className="ui celled unstackable table">
+					<table className="ui celled striped unstackable table">
 							<thead>
 								<tr>
 									<th>FAVORITE</th>
@@ -48,7 +48,7 @@ class Container extends React.Component {
 							</tbody>
 							<tfoot>
 								<tr>
-									<th colSpan={this.props.data.num_pages}>
+									<th colSpan={this.props.data.headers.length + 1}>
 										<div className="ui pagination menu">
 											<a className="icon item" data-page={-1} onClick={e => this.onArrowClick(e)}>
 												<i className="left chevron icon"></i>

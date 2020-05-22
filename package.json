@@ -2,8 +2,8 @@
   "name": "FullStackTest1",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/Autobidmaster/FullStackTest1.git",
-  "author": "AutoBidMaster",
+  "repository": "https://github.com/danzera/react-php-table.git",
+  "author": "Dan Zera",
   "license": "MIT",
   "scripts": {
     "build": "./node_modules/.bin/encore production",
