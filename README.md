@@ -1,5 +1,3 @@
-# AutoBidMaster Fullstack Developer Test
-
 ## Goal
 This assessment is designed to get a base level understanding of the applicants skill level.  The end product should be 
 a page which displays a sortable, paginated, and searchable list of vehicle records that the user can add/delete from 
