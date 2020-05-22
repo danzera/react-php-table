@@ -18,7 +18,7 @@ class DataApiController extends AbstractController {
 
         // TODO: paginate utilizing the Vehicle.php Entity
         //       likely involving the use of Doctrine\ORM\Tools\Pagination\Paginator
-        $file_array = file("../assets/data/test.csv");
+        $file_array = file(__DIR__."/test.csv");
         $file_headers = explode(",", $file_array[0]);
 
         $num_pages = ceil(count($file_array) / $num_results);
