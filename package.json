@@ -10,7 +10,7 @@
     "watch": "./node_modules/.bin/encore dev --watch --watch-poll=250"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
